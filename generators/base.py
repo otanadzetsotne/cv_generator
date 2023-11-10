@@ -30,8 +30,11 @@ class BaseGenerator:
     def base_content_body(self, content):
         return content
 
-    def list_content_body(self, content):
-        return str(content)
+    @staticmethod
+    def list_content_body(content):
+        ul = Formatter('<ul>$(li)</ul>')
+        content = ''.join([f'<li>{c}</li>' for c in content])
+        return ul.format(li=content)
 
     def experience_content_body(self, content):
         return str(content)
