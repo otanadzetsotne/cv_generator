@@ -27,7 +27,13 @@ class BaseGenerator:
         )
         return html
 
-    def base_content_body(self, content):
+    @staticmethod
+    def base_content_body(content):
+        if isinstance(content, list):
+            ul = Formatter('<ul>$(li)</ul>')
+            content = ''.join([f'<li>{c}</li>' for c in content])
+            content = ul.format(li=content)
+
         return content
 
     @staticmethod
@@ -36,8 +42,18 @@ class BaseGenerator:
         content = ''.join([f'<li>{c}</li>' for c in content])
         return ul.format(li=content)
 
-    def experience_content_body(self, content):
-        return str(content)
+    def experience_content_body(self, contents):
+        html = ''
+        for content in contents:
+            experience = self.html('experience')
+            experience = experience.format(
+                company=content.get('company', ''),
+                position=content.get('position', ''),
+                dates=content.get('dates', ''),
+                experience=self.base_content_body(content.get('content', '')),
+            )
+            html += experience
+        return html
 
     def contents(self):
         html = Formatter('')
@@ -48,11 +64,8 @@ class BaseGenerator:
             subhead = content.get('subhead')
 
             content_body = content.get('content', '')
-            if isinstance(content_body, list):
-                if subhead == 'Professional Experience':
-                    body_generator = self.experience_content_body
-                else:
-                    body_generator = self.list_content_body
+            if subhead == 'Professional Experience':
+                body_generator = self.experience_content_body
 
             content_body_html = body_generator(content_body)
             html += self.html('content').format(subhead=subhead, content=content_body_html)
