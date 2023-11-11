@@ -1,0 +1,31 @@
+Education: incomplete law, currently studying at the Faculty of Mathematics
+
+OT Commerce:
+Full Stack developer (2018 - 2021):
+Engaged in the development of CMS system for an online store
+Conducted almost complete refactoring and optimization of the side and the entire CMS
+
+OT Commerce:
+Machine learning developer (2020 - 2021):
+Developed a neural network for photo search
+Implemented a vector data encoder, reducing the amount of stored data for photo search by 4 times
+
+AlanAI:
+Python SDE (2022 - Present):
+Optimized the learning speed of the speech to text model by setting up a learning algorithm using multiple GPUs
+Created a system for distributed dataset augmentation on VertexAI
+Created a pipeline for training the speech to text model
+Implemented a pipeline for automatic tagging of audio data datasets using mfa
+Created a system for lazy calculation of model training statistics to speed up resource downtime during model training
+Involved in improving the internal service for viewing model training statistics
+Studied the capabilities of VoIP telephony to create an automated customer support system
+
+AlanAI:
+Senior Python SDE (2022 - Present):
+Created a system for recognizing key data in text
+Created an infrastructure for storing, preparing and marking data for training models
+Task distribution
+Development management
+People management
+June training
+Project management

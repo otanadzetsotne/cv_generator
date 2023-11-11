@@ -1,0 +1,112 @@
+EXPERIENCE = '''
+Education: incomplete law, currently studying at the Faculty of Mathematics
+
+OT Commerce:
+Full Stack developer (2018 - 2021):
+Engaged in the development of CMS system for an online store
+Conducted almost complete refactoring and optimization of the side and the entire CMS
+
+OT Commerce:
+Machine learning developer (2020 - 2021):
+Developed a neural network for photo search
+Implemented a vector data encoder, reducing the amount of stored data for photo search by 4 times
+
+AlanAI:
+Python SDE (2022 - Present):
+Optimized the learning speed of the speech to text model by setting up a learning algorithm using multiple GPUs
+Created a system for distributed dataset augmentation on VertexAI
+Created a pipeline for training the speech to text model
+Implemented a pipeline for automatic tagging of audio data datasets using mfa
+Created a system for lazy calculation of model training statistics to speed up resource downtime during model training
+Involved in improving the internal service for viewing model training statistics
+Studied the capabilities of VoIP telephony to create an automated customer support system
+
+AlanAI:
+Senior Python SDE (2022 - Present):
+Created a system for recognizing key data in text
+Created an infrastructure for storing, preparing and marking data for training models
+Task distribution
+Development management
+People management
+June training
+Project management
+'''
+
+VACANCY = '''$(VACANCY)'''
+
+STRUCTURE_TEMPLATE = {
+    "header": {
+        "person": "$FullName",
+        "header": "$VacancyPosition"
+    },
+    "info": {
+        "person": "$FullName",
+        "address": "Viktor Kupradze st. 18, Tbilisi, Georgia, 0163",
+        "phone": "+995 579 159 169",
+        "email": "otanadzetsotne@yahoo.com",
+        "linkedIn": "https://www.linkedin.com/in/otanadzetsotne/"
+    },
+    "content": [
+        {
+            "subhead": "Objective",
+            "content": "$CandidateSummaryForVacation"
+        },
+        {
+            "subhead": "Professional Experience",
+            "content": {
+                "company": "$CompanyName",
+                "position": "$PositionName",
+                "dates": "($WorkingFrom - $WorkingTill)",
+                "content": "$PositionSummaryAndAchievementsMatchingVacancyPosition"
+            }
+        },
+        {
+            "subhead": "Technical Skills",
+            "content": "$TechnicalSkillsMatchingVacancyPosition"
+        }
+        ...
+    ]
+}
+
+STRUCTURE_EXAMPLE = {
+    "header": {
+        "person": "Tsotne Otanadze",
+        "header": "Vacancy position"
+    },
+    "info": {
+        "person": "Tsotne Otanadze",
+        "address": "Viktor Kupradze st. 18, Tbilisi, Georgia, 0163",
+        "phone": "+995 579 159 169",
+        "email": "otanadzetsotne@yahoo.com",
+        "linkedIn": "https://www.linkedin.com/in/otanadzetsotne/"
+    },
+    "content": [
+        {
+            "subhead": "Objective",
+            "content": "Experienced IT professional with over 5 years in software development, including a strong background in server-side scripting and web technologies. Seeking the Tech Lead role at Matific to leverage my expertise in coding, system architecture, and team leadership to contribute to innovative educational technology solutions."
+        },
+        {
+            "subhead": "Professional Experience",
+            "content": [
+                {
+                    "company": "AlanAI",
+                    "position": "Tech Lead",
+                    "dates": "(2023 - Present)",
+                    "content": ["Developed an advanced data recognition system, demonstrating strong coding skills and the ability to maintain efficient, reusable, and reliable code.", "Established a data infrastructure optimized for machine learning, showcasing my capacity for ensuring the security and scalability of applications."]
+                },
+                {
+                    "company": "AlanAI",
+                    "position": "Python SDE",
+                    "dates": "(2022 - Present)",
+                    "content": "Enhanced the training speed of AI models, reflecting my proficiency in optimizing performance and integrating complex software solutions."
+                }
+            ]
+        },
+        {
+            "subhead": "Technical Skills",
+            "content": ["Proficient in HTML, CSS, JavaScript, and server-side scripting languages including PHP and Python.", "Experienced with relational databases such as MySQL."]
+        }
+    ]
+}
+
+You are chief HR, your task is to adapt work experience to a specific vacancy and create a unique resume that is suitable specifically for this vacancy, in the structure of a given format.
