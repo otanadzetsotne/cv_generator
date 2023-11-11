@@ -113,9 +113,14 @@ col_cv.markdown('#### CV JSON', unsafe_allow_html=True)
 cv = st.session_state['cv'] = col_cv.text_area(
     'cant be empty',
     value=st.session_state.get('cv', ''),
-    height=246,
+    height=161,
     key='text_area_cv',
     label_visibility='collapsed',
+)
+
+pdf_file_name = st.session_state['file_name'] = col_cv.text_input(
+    'File name',
+    value=st.session_state.get('file_name', 'cv.pdf')
 )
 
 try:
@@ -127,4 +132,4 @@ except json.JSONDecodeError as e:
 
 if valid_cv:
     pdf = get_generator().generate(cv)
-    col_cv.download_button('Download CV in pdf', data=pdf, file_name='cv.pdf', use_container_width=True)
+    col_cv.download_button('Download CV in pdf', data=pdf, file_name=pdf_file_name, use_container_width=True)
