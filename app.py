@@ -83,7 +83,7 @@ vacancy_text = st.session_state['vacancy_text'] = col_vacancy.text_area(
 col_template, col_prompt, col_cv = st.columns(3)
 
 # Prompt template
-col_template.markdown('#### Prompt template for GPT', unsafe_allow_html=True)
+col_template.markdown('#### Prompt template for LLM', unsafe_allow_html=True)
 
 prompt_template = st.session_state['prompt_template'] = col_template.text_area(
     'cant be empty',
@@ -94,7 +94,7 @@ prompt_template = st.session_state['prompt_template'] = col_template.text_area(
 )
 
 # Rendered prompt
-col_prompt.markdown('#### Prompt for GPT', unsafe_allow_html=True)
+col_prompt.markdown('#### Prompt for LLM', unsafe_allow_html=True)
 
 prompt = st.session_state.get('prompt', '')
 if col_prompt.button('Render prompt', use_container_width=True):
@@ -102,7 +102,7 @@ if col_prompt.button('Render prompt', use_container_width=True):
 prompt = st.session_state['prompt'] = col_prompt.text_area(
     'cant be empty',
     value=prompt,
-    height=250,
+    height=246,
     key='text_area_prompt',
     label_visibility='collapsed',
 )
@@ -113,7 +113,7 @@ col_cv.markdown('#### CV JSON', unsafe_allow_html=True)
 cv = st.session_state['cv'] = col_cv.text_area(
     'cant be empty',
     value=st.session_state.get('cv', ''),
-    height=250,
+    height=246,
     key='text_area_cv',
     label_visibility='collapsed',
 )
