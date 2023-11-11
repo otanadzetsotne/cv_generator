@@ -14,7 +14,7 @@ STRUCTURE_TEMPLATE = {
         "address": "$Address",
         "phone": "+$Phone",
         "email": "$Email",
-        "linkedIn": "$linkedInLink"
+        "linked_in": "$linkedInLink"
     },
     "content": [
         {
@@ -37,8 +37,9 @@ STRUCTURE_TEMPLATE = {
             "subhead": "Technical Skills",
             "content": "$TechnicalSkillsMatchingVacancyPosition"
         }
-        ...
+        ... (Other content rows if necessary)
     ]
 }
 
-You are chief HR, your task is to adapt work experience to a specific vacancy and create a unique resume that is suitable specifically for this vacancy, in the structure of a given format.
+You are chief HR, your task is to adapt work experience to a specific vacancy and create a unique CV that is suitable specifically for this vacancy.
+You need to return created CV in the JSON structure of a given format.

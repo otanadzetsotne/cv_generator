@@ -1,12 +1,15 @@
+import json
 from pathlib import Path
 
 import streamlit as st
 
 from generators.formatter import Formatter
+from generators.base import BaseGenerator
 
 st.set_page_config(page_title="CV Generator", layout="wide")
 
 ROOT_DIR = Path(__file__).parent
+HTML_TEMPLATES_DIR = ROOT_DIR / 'templates' / 'html' / 'base'
 
 
 # Default data
@@ -33,6 +36,11 @@ def render_prompt(prompt_template, experience, info, vacancy):
         vacancy=vacancy,
     )
     return prompt_template
+
+
+# @st.cache_resource
+def get_generator() -> BaseGenerator:
+    return BaseGenerator(HTML_TEMPLATES_DIR)
 
 
 # Logic
@@ -100,13 +108,23 @@ prompt = st.session_state['prompt'] = col_prompt.text_area(
 )
 
 # CV Json
-col_cv.markdown('#### CV Json', unsafe_allow_html=True)
+col_cv.markdown('#### CV JSON', unsafe_allow_html=True)
 
 cv = st.session_state['cv'] = col_cv.text_area(
     '',
-    value=st.session_state.get('cv', '{}'),
+    value=st.session_state.get('cv', ''),
     height=250,
     key='text_area_cv',
     label_visibility='collapsed',
 )
-col_cv.button('Generate CV pdf', use_container_width=True)
+
+try:
+    json.loads(cv)
+    valid_cv = True
+except json.JSONDecodeError as e:
+    col_cv.error(f'Invalid JSON in CV\n{e}')
+    valid_cv = False
+
+if valid_cv:
+    pdf = get_generator().generate(cv)
+    col_cv.download_button('Download CV in pdf', data=pdf, file_name='cv.pdf', use_container_width=True)
