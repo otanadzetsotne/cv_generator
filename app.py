@@ -51,7 +51,7 @@ col_experience, col_info, col_vacancy = st.columns([2, 1, 1])
 col_experience.markdown('#### Professional experience', unsafe_allow_html=True)
 
 experience = st.session_state['experience'] = col_experience.text_area(
-    '',
+    'cant be empty',
     value=st.session_state.get('experience', example_experience()),
     height=250,
     key='text_area_experience',
@@ -62,7 +62,7 @@ experience = st.session_state['experience'] = col_experience.text_area(
 col_info.markdown('#### Personal information', unsafe_allow_html=True)
 
 user_info = st.session_state['user_info'] = col_info.text_area(
-    '',
+    'cant be empty',
     value=st.session_state.get('user_info', example_info()),
     height=250,
     key='text_area_info',
@@ -73,7 +73,7 @@ user_info = st.session_state['user_info'] = col_info.text_area(
 col_vacancy.markdown('#### Vacancy text', unsafe_allow_html=True)
 
 vacancy_text = st.session_state['vacancy_text'] = col_vacancy.text_area(
-    '',
+    'cant be empty',
     value=st.session_state.get('vacancy_text', ''),
     height=250,
     key='text_area_vacancy',
@@ -86,7 +86,7 @@ col_template, col_prompt, col_cv = st.columns(3)
 col_template.markdown('#### Prompt template for GPT', unsafe_allow_html=True)
 
 prompt_template = st.session_state['prompt_template'] = col_template.text_area(
-    '',
+    'cant be empty',
     value=st.session_state.get('prompt_template', example_prompt()),
     height=300,
     key='text_area_prompt_template',
@@ -100,7 +100,7 @@ prompt = st.session_state.get('prompt', '')
 if col_prompt.button('Render prompt', use_container_width=True):
     prompt = render_prompt(prompt_template, experience, user_info, vacancy_text)
 prompt = st.session_state['prompt'] = col_prompt.text_area(
-    '',
+    'cant be empty',
     value=prompt,
     height=250,
     key='text_area_prompt',
@@ -111,7 +111,7 @@ prompt = st.session_state['prompt'] = col_prompt.text_area(
 col_cv.markdown('#### CV JSON', unsafe_allow_html=True)
 
 cv = st.session_state['cv'] = col_cv.text_area(
-    '',
+    'cant be empty',
     value=st.session_state.get('cv', ''),
     height=250,
     key='text_area_cv',
