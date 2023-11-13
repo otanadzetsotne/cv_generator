@@ -28,7 +28,7 @@ STRUCTURE_TEMPLATE = {
                     "company": "$CompanyName",
                     "position": "$PositionName",
                     "dates": "($WorkingFrom - $WorkingTill)",
-                    "content": "$PositionSummaryAndAchievementsMatchingVacancyPosition"
+                    "content": "$PositionSummaryAndAchievementsMatchingVacancyPosition (May be list)"
                 },
                 ...
             ]
